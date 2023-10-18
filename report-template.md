@@ -4,11 +4,15 @@
 
 In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+* The purpose of this analysis is to build a logistic regression model to predict a lendee's likelihood of defaulting on their loan and determine whether that model is accurate enough to use.
+
+* To build this model, a dataset of historical lending activity from a peer-to-peer lending services company was used.
+
+*  The analysis considers various features from the dataset, including loan status, loan amount, interest rate, income, debt, debt-to-income ratio, derogatory marks on the loan, and the number of open accounts. These features are used to predict the likelihood of a loan resulting in default.
+
+* To determine the risk of a loan, we first read into the data and separate the data into labels and features.  We then review each new dataframe to see that there's no missing data and they are matched correctly before splitting the dataset into what will be used for testing and what will be used for training the models in order to determine which is more accurate.  Defining and training the logistic regression model to test the split features and create predictions.  Finally we look at a confusion matrix and print a classification report to be able to answer which regression model is the best fit for the question of whether future loans will result as high risk or healthy.
+
+* The logistic regression model is defined and trained using the training dataset to make predictions. The analysis includes the use of evaluation metrics, such as a confusion matrix and a classification report, to assess the model's performance and determine its accuracy in predicting high-risk loans.
 
 ## Results
 
@@ -24,8 +28,4 @@ Using bulleted lists, describe the balanced accuracy scores and the precision an
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+* Performance varies according to the problem at hand.  In our specific case, for healthy loans, the precision model attains an exceptional accuracy, surpassing 99%.  However, this isn't the case for high-risk loans, instead, the recall model demonstrates 99% accuracy for high-risk loans.  Given the scenario, accurate prediction of high-risk loans takes precedence, making the use of the recall model advisable.
